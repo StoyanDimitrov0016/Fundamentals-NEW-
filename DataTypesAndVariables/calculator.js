@@ -16,4 +16,4 @@ function calculator(firstNumber, operator, secondNumber) {
     }
     console.log(result.toFixed(2));
 }
-calculator(5, '+', 10)
+calculator(5, '+', 10);
