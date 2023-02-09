@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: #EEA47F;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #sentence {
+            font-size: 20px;
+            font-weight: bold;
+            color: #00539C;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #80669d;
+            color: #D3D3D3;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="sentence"></div>
+        <button id="generate">Generate new sentence</button>
+    </div>
+
+    <script>
+        const names = ["Peter", "Michell", "Jane", "Steve", "Emma", "Oliver", "Ava", "Liam"];
+        const places = ["Sofia", "Plovdiv", "Varna", "Burgas", "London", "Paris", "Berlin", "Rome"];
+        const verbs = ['eats', 'holds', 'sees', 'plays with', 'brings', "walks", "reads", "drinks"];
+        const nouns = ['stones', 'cake', 'apple', 'laptop', 'bikes', "books", "flowers", "cars"];
+        const adverbs = ['slowly', 'diligently', 'warmly', 'sadly', 'rapidly', "carefully", "quickly"];
+        const details = ['near the river', 'at home', 'in the park', "on the beach", "in the mountains"];
+
+        function getRandomWord(array) {
+            let word = array[Math.floor(Math.random() * array.length)];
+            return word;
+        }
+
+        function generateSentence() {
+            let randomName = getRandomWord(names);
+            let randomPlace = getRandomWord(places);
+            let randomVerb = getRandomWord(verbs);
+            let randomNoun = getRandomWord(nouns);
+            let randomAdverb = getRandomWord(adverbs);
+            let randomDetail = getRandomWord(details);
+
+            let who = `${randomName} from ${randomPlace}`;
+            let action = `${randomAdverb} ${randomVerb} ${randomNoun}`;
+            let sentence = `${who} ${action} ${randomDetail}`;
+
+            return sentence;
+        }
+
+        const sentenceDiv = document.getElementById("sentence");
+        const generateButton = document.getElementById("generate");
+
+        generateButton.addEventListener("click", function () {
+            sentenceDiv.innerHTML = generateSentence();
+        });
+    </script>
+</body>
+
+</html>
