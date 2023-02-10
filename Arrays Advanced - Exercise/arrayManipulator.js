@@ -15,11 +15,7 @@ function arrayManipulator(numbers, commands) {
                 numbers.splice(indexAddMany, 0, ...values);
                 break;
             case 'contains':
-                if (numbers.indexOf(values[0] >= 0)) {
-                    console.log(numbers.indexOf(values[0]));
-                } else {
-                    console.log('-1');
-                }
+                console.log(numbers.indexOf(values[0]));
                 break;
             case 'remove':
                 numbers.splice(values[0], 1);
@@ -44,19 +40,9 @@ function arrayManipulator(numbers, commands) {
         }
         command = commands.shift();
     }
-    //The program checking is my code is valid don't approve console.log(numbers) and I had to do it manually
-    // let output = '';
-    // for (let i = 0; i < numbers.length; i++) {
-    //     if (i < numbers.length - 1) {
-    //         output += `${numbers[i]}, `
-    //     } else {
-    //         output += `${numbers[i]}`
-    //     }
-    // }
-    //console.log(`[ ${output} ]`);
     console.log("[", numbers.join(', '), "]");
 }
 arrayManipulator([1, 2],
     ["add 1 2",
         "sumPairs",
-        "print"])
+        "print"]);
