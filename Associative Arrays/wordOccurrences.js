@@ -12,7 +12,6 @@ function wordOccurrences(words) {
     for (const [word, occurrences] of sortedByCountWords) {
         console.log(word, '->', occurrences, 'times');
     }
-
 }
 wordOccurrences(["Here", "is", "the", "first", "sentence",
     "Here", "is", "another", "sentence", "And",
