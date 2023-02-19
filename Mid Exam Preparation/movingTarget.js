@@ -8,7 +8,7 @@ function movingTarget(input) {
         switch (action) {
             case 'Shoot':
                 let power = value;
-                if (index >= 0 && index <= targets.length) {
+                if (index >= 0 && index < targets.length) {
                     targets[index] -= power;
 
                     if (targets[index] <= 0) {
@@ -17,7 +17,7 @@ function movingTarget(input) {
                 }
                 break;
             case 'Add':
-                if (index >= 0 && index <= targets.length) {
+                if (index >= 0 && index < targets.length) {
                     targets.splice(index, 0, value)
                 } else {
                     console.log('Invalid placement!');
@@ -27,6 +27,8 @@ function movingTarget(input) {
                 let radius = value;
                 if ((index - radius) >= 0 && (index + radius) < targets.length) {
                     targets.splice(index - radius, 2 * radius + 1);
+                } else {
+                    console.log('Strike missed!');
                 }
                 break;
         }
