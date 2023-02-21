@@ -10,7 +10,7 @@ function valet(carList) {
     });
     let sortedCars = Array.from(cars).sort((a, b) => a[0].localeCompare(b[0]));
     if (sortedCars.length == 0) {
-        console.log('Parking Lot is Empty!');
+        console.log('Parking Lot is Empty');
     } else {
         sortedCars.forEach(car => {
             console.log(car[0]);
