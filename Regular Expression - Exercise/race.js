@@ -31,7 +31,7 @@ function race(input) {
     }
 
     for (let i = 0; i < sortedDescending.length; i++) {
-        console.log(`${i + 1}${suffixes[i + 1]}: ${sortedDescending[i][0]}`);
+        console.log(`${i + 1}${suffixes[i + 1]} place: ${sortedDescending[i][0]}`);
     }
 }
 race(["George, Peter, Bill, Tom",
