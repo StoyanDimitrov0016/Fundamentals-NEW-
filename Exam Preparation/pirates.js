@@ -1,4 +1,4 @@
-function pirates(input) {
+function piratesAttack(input) {
     const towns = {};
 
     const actions = {
@@ -20,10 +20,6 @@ function pirates(input) {
         }
     }
 
-    // for (const [city, properties] of Object.entries(towns)) {
-    //     console.log(city, properties);
-    // }
-
     input.shift();
 
     while (input[0] != 'End') {
@@ -31,7 +27,6 @@ function pirates(input) {
         values = values.map(Number);
         actions[action](city, ...values);
     }
-
 
     const remainingCities = Object.entries(towns);
 
@@ -45,20 +40,16 @@ function pirates(input) {
         console.log('Ahoy, Captain! All targets have been plundered and destroyed!');
     }
     function plunder(town, people, gold) {
-        // console.log(towns[town].population);
-        // console.log(towns[town].gold);
         towns[town].population -= people;
         towns[town].gold -= gold;
-        // console.log(towns[town].population);
-        // console.log(towns[town].gold);
 
         if (towns[town].population <= 0 || towns[town].gold <= 0) {
             delete towns[town];
+
             console.log(`${town} plundered! ${gold} gold stolen, ${people} citizens killed.`);
             console.log(`${town} has been wiped off the map!`);
             return;
         }
-
         console.log(`${town} plundered! ${gold} gold stolen, ${people} citizens killed.`);
     }
 
@@ -66,7 +57,6 @@ function pirates(input) {
         if (gold < 0) {
             return console.log('Gold added cannot be a negative number!');
         }
-
         towns[town].gold += gold;
         console.log(`${gold} gold added to the city treasury. ${town} now has ${towns[town].gold} gold.`)
     }
